@@ -12,13 +12,19 @@ import React from "react";
 // As a class-based component
 class TodoItem extends React.Component {
   render() {
+    const completedStyle = {
+      fontStyle: "italic",
+      color: "#cdcdcd",
+      textDecoration: "line-through"
+    }
+
     return (
       <div className = "todo-item">
         <input 
           type="checkbox" 
           checked={this.props.todo.completed} 
           onChange={() => this.props.handleChange(this.props.todo.id)}/>
-        <p>Task: { this.props.todo.text }</p>
+        <p style={this.props.todo.completed ? completedStyle : null}>Task: { this.props.todo.text }</p>
       </div>
     )
   }
